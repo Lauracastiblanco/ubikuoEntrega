@@ -1,9 +1,18 @@
 const openPopupBtnsModal1 = document.querySelectorAll('.open-popup[data-popup="popup1"]');
+const openPopupBtnsModal3 = document.querySelectorAll('.open-popup[data-popup="popup3"]');
 const closePopupBtns = document.querySelectorAll('.cancelarbtn');
-const openPopupBtnsModal2 = document.querySelectorAll('.actualizar-rol');
-const modal_actualizar_rol = document.querySelector('.actualizar-popup');
+const openPopupBtnsModal2 = document.querySelectorAll('.actualizar-usuario');
+const modal_actualizar_usuario = document.querySelector('.actualizar-popup');
 
 openPopupBtnsModal1.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const popupId = btn.dataset.popup;
+        const popup = document.querySelector(`#${popupId}`);
+        popup.classList.add('active');
+    });
+});
+
+openPopupBtnsModal3.forEach(btn => {
     btn.addEventListener('click', () => {
         const popupId = btn.dataset.popup;
         const popup = document.querySelector(`#${popupId}`);
@@ -21,49 +30,16 @@ closePopupBtns.forEach(btn => {
 openPopupBtnsModal2.forEach(btn => {
     btn.addEventListener('click', (event) => {
         event.preventDefault();
-        //nombre
+        
         const id_Rol = btn.getAttribute('data-rol-id');
-        const rolIdInput = modal_actualizar_rol.querySelector('#id_Rol');
-        rolIdInput.value = id_Rol ;
-        
+        const id_RolInput = modal_actualizar_usuario.querySelector('#id_Rol');
+        id_RolInput.value = id_Rol;
+        //nombre
         const rolnombre = btn.getAttribute('data-rol-nombre');
-        const rolnombreInput = modal_actualizar_rol.querySelector('#rolnombre');
-        rolnombreInput.value = rolnombre ;
+        const rolnombreInput = modal_actualizar_usuario.querySelector('#rolnombre');
+        rolnombreInput.value = rolnombre;
         
-        const rolestado = btn.getAttribute('data-rol-estado');
-        const rolestadoInput = modal_actualizar_rol.querySelector('#rolestado');
-        rolestadoInput.value = rolestado ;
-        /*
-        const usuapellido = btn.getAttribute('data-usu-apellido');
-        const usuApellidoInput = modal_actualizar_usuario.querySelector('#usuapellido');
-        usuApellidoInput.value = usuapellido;
         modal_actualizar_usuario.classList.add('active');
-        //id
-        const usuid = btn.getAttribute('data-usu-id');
-        const usuIdInput = modal_actualizar_usuario.querySelector('#id_usuario');
-        usuIdInput.value = usuid;
-        modal_actualizar_usuario.classList.add('active');
-        //direccion
-        const usudireccion = btn.getAttribute('data-usu-direccion');
-        const usuDireccionInput = modal_actualizar_usuario.querySelector('#usudireccion');
-        usuDireccionInput.value = usudireccion;
-        modal_actualizar_usuario.classList.add('active');
-        //telefono
-        const usutelefono = btn.getAttribute('data-usu-telefono');
-        const usuTelefonoInput = modal_actualizar_usuario.querySelector('#usutelefono');
-        usuTelefonoInput.value = usutelefono;
-        modal_actualizar_usuario.classList.add('active');
-        //email
-        const usuemail = btn.getAttribute('data-usu-email');
-        const usuEmailInput = modal_actualizar_usuario.querySelector('#usuemail');
-        usuEmailInput.value = usuemail;
-        modal_actualizar_usuario.classList.add('active');
-        //password
-        const usupassword = btn.getAttribute('data-usu-password');
-        const usuPasswordInput = modal_actualizar_usuario.querySelector('#usupassword');
-        usuPasswordInput.value = usupassword;*/
-        modal_actualizar_usuario.classList.add('active');
+
     });
 });
-
-

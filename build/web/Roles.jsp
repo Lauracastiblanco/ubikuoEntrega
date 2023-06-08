@@ -1,12 +1,14 @@
 <%-- 
-    Document   : Roles
-    Created on : 16/04/2023, 04:37:41 PM
+    Document   : Usuarios
+    Created on : 12/04/2023, 10:18:32 PM
     Author     : Alexander
 --%>
 
 <%@page import="ModeloDAO.rolesDAO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="ModeloVO.rolesVO"%>
+<%@page import="ModeloDAO.CategoriaDAO"%>
+<%@page import="ModeloVO.CategoriaVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="menuVendedor.jsp" %>
 <!DOCTYPE html>
@@ -29,22 +31,21 @@
                     <div class="boxes">
                         <div class="box box1">
                             <button class="open-popup" data-popup="popup1"><i class='bx bxs-plus-circle registrar'></i></button>
-                            <span class="text">Registrar Rol</span>
-                            <!------------- VENTANA MODAL DE REGISTRO ------------->
+                            <span class="text">Nuevo Rol</span>
                             <div class="popup" id="popup1">
                                 <div class="overlay"></div>
                                 <div class="popup-content">
                                     <h2>Registrar Rol</h2>
-                                    <form method = "post" action="roles">
+                                    <form method= "post" action="roles">
                                         <div class="module-details">
                                             <div class="input-box">
-                                                <span class="details">Nombre<span style="color: red;">*</span></span>
-                                                <input type="text" name="rolnombre" placeholder="Ingrese nombre..." required>
+                                                <span class="details">Nombre <span style="color: red;">*</span></span>
+                                                <input type="text" name ="rolnombre" placeholder="Nombre" required>
                                             </div>
                                         </div>
                                         <div class="controls">
                                             <a href="#" class="cancelarbtn">Cancelar</a>
-                                            <button class="registrarbtn">Registrar Usuario</button>
+                                            <button class="registrarbtn">Registrar Rol</button>
                                             <input  type="hidden" name="opcion" value="1">
                                         </div>
                                     </form>
@@ -54,24 +55,24 @@
                         <div class="box box2">
                             <i class='bx bxs-user-check activos' ></i>
                             <span class="number">10</span>
-                            <span class="text">Roles activos</span>
+                            <span class="text">Activas</span>
                         </div>
                         <div class="box box3">
                             <i class='bx bxs-user total'></i>
                             <span class="number">20</span>
-                            <span class="text">Total Roles</span>
+                            <span class="text">Total</span>
                         </div>
                     </div>
                 </div>
                 <div id="customers" class="table-data">
                     <div  class="order">
                         <div class="head">
-                            <h3>Consultar Rol</h3>
+                            <h3>Consultar Categoria</h3>
                             <div class="buscar">
                                 <input type="text" id="buscador" name="id_usuario"class="buscar__input" placeholder="Buscar">
                             </div>
                             <select class="selectico" id="estado">
-                                <option value="">Todos</option>
+                                <option value="">Todas</option>
                                 <option value="activo">Activo</option>
                                 <option value="inactivo">Inactivo</option>
                             </select>
@@ -82,48 +83,39 @@
                             <thead>
                                 <tr>
                                     <th>Identificación</th>
-                                    <th>Nombre Rol</th>
-                                    <th>Estado</th>
-                                    <th>Actualizar</th>
+                                    <th>Nombre</th>
                                 </tr>
                             </thead>
                             <%
                                 rolesVO rolVO = new rolesVO();
-                                rolesDAO rolDAO = new rolesDAO(rolVO);
-                                ArrayList<rolesVO> ListaRoles = rolDAO.listar();
-
-                                for (int i = 0; i < ListaRoles.size(); i++) {
-                                    rolVO = ListaRoles.get(i);
+                                rolesDAO rolDAO = new rolesDAO();
+                                ArrayList<rolesVO> listaRoles = rolDAO.listar();
+                                int contador = 0;
+                                for (int i = 0; i < listaRoles.size(); i++) {
+                                    rolVO = listaRoles.get(i);
+                                    contador = contador + 1;
                             %>
                             <tbody>
                                 <tr class="daticos">
                                     <td class="id_usuario"><%=rolVO.getId_Rol()%></td>
-                                    <td><%=rolVO.getId_Rol()%></td>
                                     <td><%=rolVO.getRolnombre()%></td>
                                     <td>Activo</td>
-                                    <td><button class="open-popup actualizar-usuario updatebutton" data-popup="popup2" data-rol-id="<%=rolVO.getId_Rol()%>" data-rol-nombre ="<%=rolVO.getRolnombre()%>">
+                                    <td><button class="open-popup actualizar-usuario updatebutton" data-popup="popup2" data-rol-id="<%=rolVO.getId_Rol()%>" data-rol-nombre="<%=rolVO.getRolnombre()%>">
                                             <i class='bx bx-edit actualizar'></i></button>
                                             <%}%>
                                         <div class="popup actualizar-popup" id="popup2">
                                             <div class="overlay"></div>
                                             <div class="popup-content">
-                                                <h2>Actualizar Categoria</h2>
-                                                <form method="post" action="Categoria">
+                                                <h2>Actualizar Rol</h2>
+                                                <form method="post" action="roles">
                                                     <div class="module-details">
                                                         <div class="input-box">
                                                             <span class="details">Identificación <span style="color: red;">*</span></span>
-                                                            <input type="number" name =""id_Rol placeholder="Identificación" id="id_Rol">
+                                                            <input type="number" name ="id_Rol" placeholder="Identificación" id="id_Rol">
                                                         </div>
                                                         <div class="input-box">
-                                                            <span class="details">Nombre<span style="color: red;">*</span></span>
-                                                            <input type="text" name =""rolnombre placeholder="Nombre" id="rolnombre">
-                                                        </div>
-                                                        <div class="input-box">
-                                                            <span class="details">Estado<span style="color: red;">*</span></span>
-                                                            <select name="rolestado" id="rolestado">
-                                                                <option value="activo">Activo</option>
-                                                                <option value="inactivo">Inactivo</option>
-                                                            </select>
+                                                            <span class="details">Nombre <span style="color: red;">*</span></span>
+                                                            <input type="text" name ="rolnombre" placeholder="Nombre" id="rolnombre">
                                                         </div>
                                                     </div>
                                                     <div class="controls">
@@ -140,6 +132,7 @@
                         </table>
                     </div>
                 </div>
+            </div>
         </section>
         <script src="JS/buscador.js" type="text/javascript"></script>
         <script src="JS/popuprol.js" type="text/javascript"></script>

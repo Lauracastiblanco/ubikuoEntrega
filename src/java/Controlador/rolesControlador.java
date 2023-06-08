@@ -68,7 +68,7 @@ public class rolesControlador extends HttpServlet {
                     request.setAttribute("mensajeError", "El rol no actualizado correctamente");
                     
                 }
-                request.getRequestDispatcher("registrarRoles.jsp").forward(request, response);
+                request.getRequestDispatcher("Roles.jsp").forward(request, response);
             break;
                 
      }
