@@ -72,11 +72,11 @@ public final class menuVendedor_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    <i class=\"material-symbols-outlined\">home</i>\r\n");
       out.write("                    <span class=\"link-name\">Inicio</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Productos.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-outlined\">inventory</i>\r\n");
       out.write("                    <span class=\"link-name\">Productos</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Clientes.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-sharp\">face</i>\r\n");
       out.write("                    <span class=\"link-name\">Clientes</span>\r\n");
       out.write("                </a></li>\r\n");
@@ -92,7 +92,7 @@ public final class menuVendedor_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    <i class=\"material-symbols-sharp\">inactive_order</i>\r\n");
       out.write("                    <span class=\"link-name\">Cotizacion</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Categorias.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-sharp\">category</i>\r\n");
       out.write("                    <span class=\"link-name\">Categorias</span>\r\n");
       out.write("                </a></li>\r\n");
