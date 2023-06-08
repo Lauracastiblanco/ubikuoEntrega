@@ -1,0 +1,25 @@
+SMAP
+Clientes_jsp.java
+JSP
+*S JSP
+*F
++ 0 Clientes.jsp
+Clientes.jsp
++ 1 menuVendedor.jsp
+menuVendedor.jsp
+*L
+5,7:52
+5#1,94:58
+11#0,136:151
+147,8:288
+154,3:296
+157:299,3
+158:302,5
+159,4:307,3
+163:319
+164:320,9
+165:329,7
+166:336
+167:337,3
+168,56:340
+*E

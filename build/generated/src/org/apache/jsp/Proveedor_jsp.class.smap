@@ -1,0 +1,22 @@
+SMAP
+Proveedor_jsp.java
+JSP
+*S JSP
+*F
++ 0 Proveedor.jsp
+Proveedor.jsp
++ 1 menuVendedor.jsp
+menuVendedor.jsp
+*L
+5,6:52
+5#1,94:57
+10#0,126:150
+136,7:277
+142,3:284
+145,7:287,3
+152:308,6
+153:314,17
+154:331
+155:332,3
+156,63:335
+*E

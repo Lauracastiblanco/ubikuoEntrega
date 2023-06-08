@@ -1,0 +1,22 @@
+SMAP
+Roles_jsp.java
+JSP
+*S JSP
+*F
++ 0 Roles.jsp
+Roles.jsp
++ 1 menuVendedor.jsp
+menuVendedor.jsp
+*L
+5,7:52
+5#1,94:58
+11#0,80:151
+91,7:232
+97,3:239
+100,2:242,3
+102:248
+103:249,5
+104:254
+105:255,3
+106,41:258
+*E
