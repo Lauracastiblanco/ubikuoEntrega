@@ -6,7 +6,9 @@
 package Controlador;
 
 import ModeloDAO.DetallesPedidoProveedorDAO;
+import ModeloDAO.ProveedorDAO;
 import ModeloVO.DetallesPedidoProveedorVO;
+import ModeloVO.ProveedorVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -26,6 +28,8 @@ public class DetallesPedidoProveedorControlador extends HttpServlet {
 
     DetallesPedidoProveedorDAO detProvDAO = new DetallesPedidoProveedorDAO();
     DetallesPedidoProveedorVO detProvVO = new DetallesPedidoProveedorVO();
+    ProveedorVO provVO = new ProveedorVO();
+    ProveedorDAO provDAO = new ProveedorDAO(provVO);
     String idProducto;
     String nombreProducto;
     int cantidad, item;
@@ -51,7 +55,7 @@ public class DetallesPedidoProveedorControlador extends HttpServlet {
                     detProvVO.setDescripcionProducto(nombreProducto);
                     detProvVO.setDpro_preciocompra(precioUnitario);
                     detProvVO.setDpro_cantidad(cantidad);
-                    
+
                     detProvVO.setDpro_subtotal(subtotal);
                     listaProductos.add(detProvVO);
                     request.setAttribute("listaProductos", listaProductos);
@@ -66,9 +70,15 @@ public class DetallesPedidoProveedorControlador extends HttpServlet {
                     // Limpiar la lista de productos después de insertarlos en la tabla
                     listaProductos.clear();
                     break;
+                case 3:
+                    String nit = request.getParameter("id_prov");
+                    provVO.setId_prov(nit);
+                    provVO = provDAO.consultarPorId(nit);
+                    request.setAttribute("provVO", provVO);
+                    break;
 
             }
-            request.getRequestDispatcher("PedidoProveedor.jsp").forward(request, response);
+            request.getRequestDispatcher("prueba.jsp").forward(request, response);
 
         }
     }

@@ -3,18 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+var selectedProveedor = null;
+var selectedUsuario = null;
+
 function inputsProveedor() {
-    var selectProveedor = document.getElementById("miSelect");
+    var selectProveedor = document.getElementById("selectProveedor");
     var provSeleccionado = selectProveedor.options[selectProveedor.selectedIndex];
-    var nombre = provSeleccionado.getAttribute("data-nombre");
-    document.getElementById("pronombre").value = nombre;
-    var representante = provSeleccionado.getAttribute("data-representante");
-    document.getElementById("prorepresentante").value = representante;
-    var direccion = provSeleccionado.getAttribute("data-direccion");
-    document.getElementById("prodireccion").value = direccion;
-    var correo = provSeleccionado.getAttribute("data-correo");
-    document.getElementById("procorreo").value = correo;
+    selectedProveedor = {
+        nombre: provSeleccionado.getAttribute("data-nombre"),
+        representante: provSeleccionado.getAttribute("data-representante"),
+        direccion: provSeleccionado.getAttribute("data-direccion"),
+        correo: provSeleccionado.getAttribute("data-correo")
+    };
+    document.getElementById("pronombre").value = selectedProveedor.nombre;
+    document.getElementById("prorepresentante").value = selectedProveedor.representante;
+    document.getElementById("prodireccion").value = selectedProveedor.direccion;
+    document.getElementById("procorreo").value = selectedProveedor.correo;
 }
+
+
 function inputsProductos() {
     var selectProducto = document.getElementById("selectProducto");
     var prodSeleccionado = selectProducto.options[selectProducto.selectedIndex];
