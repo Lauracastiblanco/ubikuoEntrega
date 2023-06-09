@@ -22,7 +22,31 @@
         <link href="CSS/principal.css" rel="stylesheet" type="text/css"/>
         <!--------------------- Iconos ------------------------------->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </head>
+    <%-- Mostrar SweetAlert si se registra el cliente normal exitosamente --%>
+    <% String successMessage = (String) request.getAttribute("mensajeExito"); %>
+    <% if (successMessage != null) {%>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Producto Creado con exito',
+            text: '<%= successMessage%>'
+        });
+    </script>
+    <% } %>
+
+    <%-- Mostrar SweetAlert en caso de error al registrar el cliente normal --%>
+    <% String errorMessage = (String) request.getAttribute("mensajeError"); %>
+    <% if (errorMessage != null) {%>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Producto no registrado',
+            text: '<%= errorMessage%>'
+        });
+    </script>
+    <% } %>
     <body>
         <section class="main">
             <div class="dash-content">
@@ -58,6 +82,10 @@
                                                     <option value="<%=catVO.getId_cat()%>"><%=catVO.getCatnombre()%></option>
                                                     <%}%>
                                                 </select>
+                                            </div>
+                                            <div class="input-box">
+                                                <span class="details">Referencia<span style="color: red;">*</span> </span>
+                                                <input type="text" name ="id_prod" placeholder="id_prod" required>
                                             </div>
                                             <div class="input-box">
                                                 <span class="details">Disponibilidad<span style="color: red;">*</span> </span>
@@ -182,7 +210,7 @@
                                     <td><%=prodVO.getCatnombre()%></td>
                                     <td><%=prodVO.getProdstock_disp()%></td>
                                     <td><%=prodVO.getProd_descripcion()%></td>
-                                    <td><%=prodVO.getProd_id_prov() %></td>
+                                    <td><%=prodVO.getProd_id_prov()%></td>
                                     <td class="estado-usuario"><span class="status <%=prodVO.getProdestado().equals("activo") ? "completed" : "inactive"%>"><%=prodVO.getProdestado()%></span></td>
                                     <td><button class="open-popup actualizar-usuario updatebutton" data-popup="popup2" data-prod-id="<%=prodVO.getId_prod()%>" data-prod-nombre="<%=prodVO.getProdnombre()%>" data-prod-precio="<%=prodVO.getProdprecio()%>" data-prod-categoria="<%=prodVO.getProd_id_categoria()%>" data-prod-dispo="<%=prodVO.getProdstock_disp()%>" data-prod-descripcion="<%=prodVO.getProd_descripcion()%>" data-prod-descripcion="<%=prodVO.getProd_descripcion()%>" data-prod-proveedor="<%=prodVO.getProd_id_prov()%>" data-prod-estado="<%=prodVO.getProdestado()%>">
                                             <i class='bx bx-edit actualizar'></i></button>

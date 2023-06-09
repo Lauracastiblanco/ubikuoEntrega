@@ -1,9 +1,9 @@
 <%-- 
-    Document   : CrearCotizacion1
-    Created on : 29/05/2023, 05:01:35 PM
-    Author     : diego
+    Document   : CrearPedido
+    Created on : Jun 5, 2023, 3:25:11 AM
+    Author     : WIN
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page import="ModeloDAO.ClienteDAO"%>
 <%@page import="java.util.Date"%>
@@ -51,7 +51,7 @@
     <script>
         Swal.fire({
             icon: 'success',
-            title: 'Cotizacion generada con exito',
+            title: 'Pedido Creado',
             text: '<%= successMessage%>'
         });
     </script>
@@ -72,11 +72,11 @@
     <body >
 
         <section class="main">
-            <form  id="cotizacion-form" method="post" action="cotizacion" autocomplete="off">
+            <form  id="pedido-form" method="post" action="Pedido" autocomplete="off">
                 <div class="dash-content">
                     <div class="overview">
                         <div class="title">
-                            <span class="text">Crear Cotizacion</span>
+                            <span class="text">Pedidos</span>
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
 
                             <div class="caja1">
 
-                                <h4>Datos Generales</h4>
+                                <h4>Datos Usuario</h4>
                                 <div class="datos-usu">
                                     <%
                                         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -110,47 +110,37 @@
 
                                 <div class="datos-prov">
                                     <div class="datosclientes">
-                                        <div style="display: flex; flex-wrap: wrap;">
 
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Documento</label>
-                                                <div style="display: flex; align-items: center;">
-                                                    <input type="text" name="cot_id_cliente" value="${c.getId_cliente()}" autofocus> 
-                                                    <button type="submit" name="accion" value="buscarcliente" class="btn btn-success">Buscar</button>
-                                                </div>
-                                            </div>
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Nombre</label>
-                                                <input type="text" placeholder="Nombre" value="${c.getClinombre()}" class="form-field" readonly>
-                                            </div>
+                                        <label>Documento</label>
 
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Apellido</label>
-                                                <input type="text" placeholder="Apellido" value="${c.getCliapellido()}" class="form-field" readonly>
-                                            </div>
 
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Descripción</label>
-                                                <input type="text" placeholder="Descripción" value="${c.getClidescripcion()}" class="form-field" readonly>
-                                            </div>
-
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Correo</label>
-                                                <input type="text" placeholder="Correo" value="${c.getClicorreo()}" class="form-field" readonly>
-                                            </div>
-
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Dirección</label>
-                                                <input type="text" placeholder="Dirección" value="${c.getClidireccion()}" class="form-field" readonly>
-                                            </div>
-
-                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-                                                <label>Teléfono</label>
-                                                <input type="text" placeholder="Teléfono" value="${c.getClitelefono()}" class="form-field" readonly>
-                                            </div>
-
+                                        <div style="display: flex; align-items: center;">
+                                            <input type="text" name="ped_id_cliente" value="${c.getId_cliente()}"> 
+                                            <button type="submit" name="accion" value="buscarcliente" class="btn btn-success" >Buscar</button>
                                         </div>
+
+
+
+                                        <label>Nombre</label>
+                                        <input type="text" placeholder="Nombre" value="${c.getClinombre()}"  class="form-field"readonly>
+
+                                        <label>Apellido</label>
+                                        <input type="text" placeholder="Apellido" value="${c.getCliapellido()}"  class="form-field"readonly>
+
+                                        <label>Descripción</label>
+                                        <input type="text" placeholder="Descripción" value="${c.getClidescripcion()}"  class="form-field"readonly>
+
+                                        <label>Correo</label>
+                                        <input type="text" placeholder="Correo" value="${c.getClicorreo()}"  class="form-field"readonly>
+
+                                        <label>Dirección</label>
+                                        <input type="text" placeholder="Dirección" value="${c.getClidireccion()}" class="form-field" readonly>
+
+                                        <label>Teléfono</label>
+                                        <input type="text" placeholder="Teléfono" value="${c.getClitelefono()}"  class="form-field"readonly>
+
                                     </div>
+
                                 </div>
 
                             </div>
@@ -174,14 +164,14 @@
                                     <c:forEach var="list" items="${lista}" varStatus="status">
                                         <tr>
                                             <td>${list.getItem()}</td>
-                                            <td>${list.getDc_id_producto()}</td>
-                                            <td>${list.getNombreproductoL()}</td>
-                                            <td>${list.getCantidad()}</td>
+                                            <td>${list.getDp_id_producto()}</td>
+                                            <td>${list.getNombreprod()}</td>
+                                            <td>${list.getDp_cantidad()}</td>
                                             <td>${list.getPrecio()}</td>
                                             <td>${list.getSubtotal()}</td>
                                             <td class="d-flex">
                                                 <a class="btn btn-danger" style="margin-left: 10px" onclick="borrarProducto(${list.item})">Borrar</a>
-
+                                                <a class="btn btn-secondary" style="margin-left: 10px" >Editar</a>
 
                                             </td>
                                             <td></td>
@@ -197,7 +187,7 @@
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <button type="submit" name="accion" value="generarcotizacion" class="btn btn-secondary">generar cotizacion</button>
+                                    <button type="submit" name="accion" value="generarpedido" class="btn btn-secondary">Crear Pedido</button>
                                     <input type="button" value="Cancelar" onclick="cancelarRegistro()" class="btn btn-danger" style="margin-left: 10px">
                                 </div>
 
@@ -212,7 +202,7 @@
                                     <div class="datosproductos">
 
                                         <label>Producto</label>
-                                        <input type="text"  name="dc_id_prod" value="${pr.getId_prod()}"  >
+                                        <input type="text"  name="dp_id_prod" value="${pr.getId_prod()}"  >
                                         <button type="submit" name="accion" value="buscarproducto" class="btn btn-secondary">buscar</button>
 
                                         <label>Descripción</label>
@@ -223,10 +213,7 @@
                                         <input type="text" placeholder="Stock" value="${pr. getProdstock_disp()}" name="stock" readonly>
                                         <label>Cantidad</label>
                                         <input type="text" placeholder="Cantidad" name="cantidad">
-
-                                        <label>Foto</label>
-                                        <img class="foto-prod" src="ASSETS/Breaker.png" alt=""/>
-                                        <button class="btn agregar" id="agregar-btn" >Agregar al pedido</button>
+                                        <button class="btn agregar" id="agregar-btn" >Agregar</button>
                                         <input  type="hidden" name="accion" value="agregarproducto">
                                     </div>
                                 </div>
@@ -234,6 +221,7 @@
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </form>
@@ -247,8 +235,7 @@
         <script>
                                         function cancelarRegistro() {
                                             if (confirm("¿Estás seguro que deseas cancelar el registro?")) {
-                                                document.getElementById("cotizacion-form").setAttribute("onsubmit", "return false;");
-
+                                                document.getElementById("pedido-form").setAttribute("onsubmit", "return false;");
                                                 var tablaProductos = document.getElementById("tablaProductos");
                                                 if (tablaProductos) {
                                                     var tbody = tablaProductos.getElementsByTagName("tbody")[0];
@@ -256,20 +243,16 @@
                                                         tbody.removeChild(tbody.firstChild); // Eliminar todas las filas de la tabla
                                                     }
                                                 }
-
                                                 // Llamar al controlador para cancelar el registro
-                                                window.location.href = "cotizacion?accion=cancelar";
+                                                window.location.href = "Pedido?accion=cancelar";
                                             }
                                         }
-
-
-
         </script>
         <script>
             // Función para agregar un producto a la tabla de la cotización
             function agregarProducto() {
                 // Obtener los valores de los campos de producto
-                var idProducto = $("input[name='dc_id_prod']").val();
+                var idProducto = $("input[name='dp_id_prod']").val();
                 var producto = $("input[name='nomproducto']").val();
                 var precio = parseFloat($("input[name='precio']").val());
                 var stock = parseInt($("input[name='stock']").val());

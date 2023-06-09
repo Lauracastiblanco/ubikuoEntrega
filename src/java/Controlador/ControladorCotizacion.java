@@ -113,7 +113,7 @@ public class ControladorCotizacion extends HttpServlet {
                 } else {
                     // Resto del código para guardar la cotización
                     ctVO.setId_cot_cliente(Integer.parseInt(cvo.getId_cliente()));
-                    ctVO.setCot_id_usuario(1);
+                    ctVO.setCot_id_usuario(1019081667);
                     ctVO.setTotal(total);
                     ctVO.setCotestado("pendiente");
                     ctDAO.guardarCotizacion(ctVO);
