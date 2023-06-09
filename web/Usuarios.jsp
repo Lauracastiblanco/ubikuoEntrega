@@ -20,32 +20,7 @@
         <link href="CSS/principal.css" rel="stylesheet" type="text/css"/>
         <!--------------------- Iconos ------------------------------->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </head>
-     <%-- Mostrar SweetAlert si se registra el cliente normal exitosamente --%>
-    <% String successMessage = (String) request.getAttribute("mensajeExito"); %>
-    <% if (successMessage != null) {%>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Usuario registrado con exito',
-            text: '<%= successMessage%>'
-        });
-    </script>
-    <% } %>
-
-    <%-- Mostrar SweetAlert en caso de error al registrar el cliente normal --%>
-    <% String errorMessage = (String) request.getAttribute("mensajeError"); %>
-    <% if (errorMessage != null) {%>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Usuario no registrado',
-            text: '<%= errorMessage%>'
-        });
-    </script>
-    <% } %>
-   
     <body>
         <section class="main">
             <div class="dash-content">
@@ -90,7 +65,6 @@
                                             <div class="input-box">
                                                 <span class="details">Contraseña<span style="color: red;">*</span> </span>
                                                 <input type="password"  name="usupassword" placeholder="Contraseña" required>
-                                                
                                             </div>
                                             <div class="input-box">
                                                 <span class="details">Rol<span style="color: red;">*</span></span>
