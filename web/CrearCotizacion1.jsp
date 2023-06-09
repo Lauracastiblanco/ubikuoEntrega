@@ -3,7 +3,7 @@
     Created on : 29/05/2023, 05:01:35 PM
     Author     : diego
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page import="ModeloDAO.ClienteDAO"%>
 <%@page import="java.util.Date"%>

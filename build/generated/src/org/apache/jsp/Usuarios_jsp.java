@@ -90,11 +90,11 @@ public final class Usuarios_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <i class=\"material-symbols-outlined\">home</i>\r\n");
       out.write("                    <span class=\"link-name\">Inicio</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Productos.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-outlined\">inventory</i>\r\n");
       out.write("                    <span class=\"link-name\">Productos</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Clientes.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-sharp\">face</i>\r\n");
       out.write("                    <span class=\"link-name\">Clientes</span>\r\n");
       out.write("                </a></li>\r\n");
@@ -110,7 +110,7 @@ public final class Usuarios_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <i class=\"material-symbols-sharp\">inactive_order</i>\r\n");
       out.write("                    <span class=\"link-name\">Cotizacion</span>\r\n");
       out.write("                </a></li>\r\n");
-      out.write("                <li><a href=\"#\">\r\n");
+      out.write("                <li><a href=\"Categorias.jsp\">\r\n");
       out.write("                    <i class=\"material-symbols-sharp\">category</i>\r\n");
       out.write("                    <span class=\"link-name\">Categorias</span>\r\n");
       out.write("                </a></li>\r\n");
@@ -162,7 +162,50 @@ public final class Usuarios_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"CSS/principal.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n");
       out.write("        <!--------------------- Iconos ------------------------------->\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css\">\r\n");
+      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@10\"></script>\r\n");
       out.write("    </head>\r\n");
+      out.write("     ");
+      out.write("\r\n");
+      out.write("    ");
+ String successMessage = (String) request.getAttribute("mensajeExito"); 
+      out.write("\r\n");
+      out.write("    ");
+ if (successMessage != null) {
+      out.write("\r\n");
+      out.write("    <script>\r\n");
+      out.write("        Swal.fire({\r\n");
+      out.write("            icon: 'success',\r\n");
+      out.write("            title: 'Usuario registrado con exito',\r\n");
+      out.write("            text: '");
+      out.print( successMessage);
+      out.write("'\r\n");
+      out.write("        });\r\n");
+      out.write("    </script>\r\n");
+      out.write("    ");
+ } 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("    ");
+      out.write("\r\n");
+      out.write("    ");
+ String errorMessage = (String) request.getAttribute("mensajeError"); 
+      out.write("\r\n");
+      out.write("    ");
+ if (errorMessage != null) {
+      out.write("\r\n");
+      out.write("    <script>\r\n");
+      out.write("        Swal.fire({\r\n");
+      out.write("            icon: 'error',\r\n");
+      out.write("            title: 'Usuario no registrado',\r\n");
+      out.write("            text: '");
+      out.print( errorMessage);
+      out.write("'\r\n");
+      out.write("        });\r\n");
+      out.write("    </script>\r\n");
+      out.write("    ");
+ } 
+      out.write("\r\n");
+      out.write("   \r\n");
       out.write("    <body>\r\n");
       out.write("        <section class=\"main\">\r\n");
       out.write("            <div class=\"dash-content\">\r\n");
@@ -207,6 +250,7 @@ public final class Usuarios_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <div class=\"input-box\">\r\n");
       out.write("                                                <span class=\"details\">Contraseña<span style=\"color: red;\">*</span> </span>\r\n");
       out.write("                                                <input type=\"password\"  name=\"usupassword\" placeholder=\"Contraseña\" required>\r\n");
+      out.write("                                                \r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"input-box\">\r\n");
       out.write("                                                <span class=\"details\">Rol<span style=\"color: red;\">*</span></span>\r\n");
