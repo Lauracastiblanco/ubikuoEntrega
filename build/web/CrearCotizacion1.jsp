@@ -109,50 +109,50 @@
                                 <h4>Datos Cliente</h4>
 
                                 <div class="datos-prov">
-  <div class="datosclientes">
-    <div style="display: flex; flex-wrap: wrap;">
+                                    <div class="datosclientes">
+                                        <div style="display: flex; flex-wrap: wrap;">
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Documento</label>
-        <div style="display: flex; align-items: center;">
-          <input type="text" name="cot_id_cliente" value="${c.getId_cliente()}" autofocus> 
-          <button type="submit" name="accion" value="buscarcliente" class="btn btn-success">Buscar</button>
-        </div>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Documento</label>
+                                                <div style="display: flex; align-items: center;">
+                                                    <input type="text" name="cot_id_cliente" value="${c.getId_cliente()}" autofocus> 
+                                                    <button type="submit" name="accion" value="buscarcliente" class="btn btn-success">Buscar</button>
+                                                </div>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Nombre</label>
-        <input type="text" placeholder="Nombre" value="${c.getClinombre()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Nombre</label>
+                                                <input type="text" placeholder="Nombre" value="${c.getClinombre()}" class="form-field" readonly>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Apellido</label>
-        <input type="text" placeholder="Apellido" value="${c.getCliapellido()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Apellido</label>
+                                                <input type="text" placeholder="Apellido" value="${c.getCliapellido()}" class="form-field" readonly>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Descripción</label>
-        <input type="text" placeholder="Descripción" value="${c.getClidescripcion()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Descripción</label>
+                                                <input type="text" placeholder="Descripción" value="${c.getClidescripcion()}" class="form-field" readonly>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Correo</label>
-        <input type="text" placeholder="Correo" value="${c.getClicorreo()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Correo</label>
+                                                <input type="text" placeholder="Correo" value="${c.getClicorreo()}" class="form-field" readonly>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Dirección</label>
-        <input type="text" placeholder="Dirección" value="${c.getClidireccion()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Dirección</label>
+                                                <input type="text" placeholder="Dirección" value="${c.getClidireccion()}" class="form-field" readonly>
+                                            </div>
 
-      <div style="flex: 0 0 33.33%; max-width: 33.33%;">
-        <label>Teléfono</label>
-        <input type="text" placeholder="Teléfono" value="${c.getClitelefono()}" class="form-field" readonly>
-      </div>
+                                            <div style="flex: 0 0 33.33%; max-width: 33.33%;">
+                                                <label>Teléfono</label>
+                                                <input type="text" placeholder="Teléfono" value="${c.getClitelefono()}" class="form-field" readonly>
+                                            </div>
 
-    </div>
-  </div>
-</div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
 
@@ -181,7 +181,7 @@
                                             <td>${list.getPrecio()}</td>
                                             <td>${list.getSubtotal()}</td>
                                             <td class="d-flex">
-                                               <a class="btn btn-danger" style="margin-left: 10px" onclick="borrarProducto(${list.item})">Borrar</a>
+                                                <a class="btn btn-danger" style="margin-left: 10px" onclick="borrarProducto(${list.item})">Borrar</a>
 
 
                                             </td>
@@ -267,98 +267,98 @@
 
         </script>
         <script>
-        // Función para agregar un producto a la tabla de la cotización
-function agregarProducto() {
-  // Obtener los valores de los campos de producto
-  var idProducto = $("input[name='dc_id_prod']").val();
-  var producto = $("input[name='nomproducto']").val();
-  var precio = parseFloat($("input[name='precio']").val());
-  var stock = parseInt($("input[name='stock']").val());
-  var cantidad = parseInt($("input[name='cantidad']").val());
+            // Función para agregar un producto a la tabla de la cotización
+            function agregarProducto() {
+                // Obtener los valores de los campos de producto
+                var idProducto = $("input[name='dc_id_prod']").val();
+                var producto = $("input[name='nomproducto']").val();
+                var precio = parseFloat($("input[name='precio']").val());
+                var stock = parseInt($("input[name='stock']").val());
+                var cantidad = parseInt($("input[name='cantidad']").val());
 
-  // Validar la cantidad ingresada
-  if (isNaN(cantidad) || cantidad <= 0) {
-    alert("Ingrese una cantidad válida.");
-    return;
-  }
+                // Validar la cantidad ingresada
+                if (isNaN(cantidad) || cantidad <= 0) {
+                    alert("Ingrese una cantidad válida.");
+                    return;
+                }
 
-  // Validar el stock disponible
-  if (cantidad > stock) {
-    alert("La cantidad ingresada supera el stock disponible.");
-    return;
-  }
+                // Validar el stock disponible
+                if (cantidad > stock) {
+                    alert("La cantidad ingresada supera el stock disponible.");
+                    return;
+                }
 
-  // Calcular el subtotal
-  var subtotal = precio * cantidad;
+                // Calcular el subtotal
+                var subtotal = precio * cantidad;
 
-  // Crear la nueva fila de la tabla
-  var newRow =
-    "<tr>" +
-    "<td></td>" +
-    "<td>" + idProducto + "</td>" +
-    "<td>" + producto + "</td>" +
-    "<td>" + cantidad + "</td>" +
-    "<td>" + precio + "</td>" +
-    "<td>" + subtotal + "</td>" +
-    "<td class='d-flex'>" +
-    "<a class='btn btn-danger' style='margin-left: 10px' onclick='borrarProducto(this)'>Borrar</a>" +
-    "</td>" +
-    "</tr>";
+                // Crear la nueva fila de la tabla
+                var newRow =
+                        "<tr>" +
+                        "<td></td>" +
+                        "<td>" + idProducto + "</td>" +
+                        "<td>" + producto + "</td>" +
+                        "<td>" + cantidad + "</td>" +
+                        "<td>" + precio + "</td>" +
+                        "<td>" + subtotal + "</td>" +
+                        "<td class='d-flex'>" +
+                        "<a class='btn btn-danger' style='margin-left: 10px' onclick='borrarProducto(this)'>Borrar</a>" +
+                        "</td>" +
+                        "</tr>";
 
-  // Agregar la nueva fila a la tabla
-  $("#tablaProductos tbody").append(newRow);
+                // Agregar la nueva fila a la tabla
+                $("#tablaProductos tbody").append(newRow);
 
-  // Actualizar los índices de los ítems
-  actualizarIndices();
+                // Actualizar los índices de los ítems
+                actualizarIndices();
 
-  // Calcular el nuevo total
-  calcularTotal();
-}
+                // Calcular el nuevo total
+                calcularTotal();
+            }
 
 // Función para borrar un producto de la tabla de la cotización
-function borrarProducto(button) {
-  // Obtener la fila padre del botón de borrar
-  var row = $(button).closest("tr");
+            function borrarProducto(button) {
+                // Obtener la fila padre del botón de borrar
+                var row = $(button).closest("tr");
 
-  // Eliminar la fila de la tabla
-  row.remove();
+                // Eliminar la fila de la tabla
+                row.remove();
 
-  // Actualizar los índices de los ítems
-  actualizarIndices();
+                // Actualizar los índices de los ítems
+                actualizarIndices();
 
-  // Calcular el nuevo total
-  calcularTotal();
-}
+                // Calcular el nuevo total
+                calcularTotal();
+            }
 
 // Función para actualizar los índices de los ítems en la tabla
-function actualizarIndices() {
-  $("#tablaProductos tbody tr").each(function (index) {
-    $(this).find("td:first").text(index + 1);
-  });
-}
+            function actualizarIndices() {
+                $("#tablaProductos tbody tr").each(function (index) {
+                    $(this).find("td:first").text(index + 1);
+                });
+            }
 
 // Función para calcular el total de la cotización
-function calcularTotal() {
-  var total = 0.0;
+            function calcularTotal() {
+                var total = 0.0;
 
-  $("#tablaProductos tbody tr").each(function () {
-    var subtotal = parseFloat($(this).find("td:nth-child(6)").text());
-    total += subtotal;
-  });
+                $("#tablaProductos tbody tr").each(function () {
+                    var subtotal = parseFloat($(this).find("td:nth-child(6)").text());
+                    total += subtotal;
+                });
 
-  $("#total").text(total);
-}
+                $("#total").text(total);
+            }
 
 // Evento para agregar un producto al hacer clic en el botón
-$("#agregar-btn").click(function () {
-  agregarProducto();
-});
+            $("#agregar-btn").click(function () {
+                agregarProducto();
+            });
 
 // Evento para borrar un producto al hacer clic en el botón de borrar
-$(document).on("click", ".btn-danger", function () {
-  borrarProducto(this);
-});
-</script>
+            $(document).on("click", ".btn-danger", function () {
+                borrarProducto(this);
+            });
+        </script>
 
 
         < /body>

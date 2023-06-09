@@ -43,6 +43,7 @@ and open the template in the editor.
 .columna2 {
     width: 30%;
 }
+
 h2 {
     margin-top: 1rem;
     font-size: 1.1rem;  
@@ -69,6 +70,14 @@ h2 {
     
 }
 
+.datos-usu,
+.datos-prov {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 .box-container {
     display: flex;
     flex-direction: column;
@@ -79,10 +88,12 @@ h2 {
     padding-right: 10px;
     /* Agregar espacio entre las etiquetas y los campos de entrada */
 }
+
 .box-container label {
     display: block;
     margin-bottom: 5px;
 }
+
 input[type="date"],
 input[type="text"],
 select {
@@ -94,9 +105,10 @@ select {
     box-sizing: border-box;
     font-size: 0.8rem;
 }
+
 .select2-results__option {
-  background-color: #f1f1f1;
-  font-size: 12px;
+    background-color: #f1f1f1;
+    font-size: 12px;
 }
 
 .select2-container .select2-selection {
@@ -109,13 +121,11 @@ select {
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
 }
+
 .select2-container--default .select2-selection--single {
     height: 41px;
 }
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #DE5C5C;
-    color: white;
-}
+
 
 /* Estilos de la tabla */
 

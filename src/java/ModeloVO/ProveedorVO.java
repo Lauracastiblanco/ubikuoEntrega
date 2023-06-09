@@ -27,6 +27,17 @@ public class ProveedorVO {
         this.prorepresentante = prorepresentante;
     }
 
+    public ProveedorVO(String id_prov, String pronombre, String prodireccion, String prodescripcion, String procorreo, String prorepresentante) {
+        this.id_prov = id_prov;
+        this.pronombre = pronombre;
+        this.prodireccion = prodireccion;
+        this.prodescripcion = prodescripcion;
+        this.procorreo = procorreo;
+        this.prorepresentante = prorepresentante;
+    }
+    
+    
+
     public String getId_prov() {
         return id_prov;
     }

@@ -169,7 +169,6 @@ public class ProveedorDAO extends ConexionBd implements Crud {
         }
         return provVO;
     }
-
     @Override
     public boolean eliminarRegisro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

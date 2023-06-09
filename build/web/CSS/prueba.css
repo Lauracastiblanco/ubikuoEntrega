@@ -4,9 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 9/05/2023, 06:24:09 PM
+    Created on : 8/06/2023, 06:09:44 PM
     Author     : Alexander
 */
+
 :root {
     --color-primary: #DE5C5C;
     --color-danger: #ff7782;
@@ -29,45 +30,19 @@ and open the template in the editor.
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
     margin-top: 1rem;
 }
 
-.columna1 {
-    display: flex;
-    flex-direction: column;
-    width: 68%;
-}
-
-.columna2 {
-    width: 30%;
-}
-
-h2 {
-    margin-top: 1rem;
-    font-size: 1.1rem;  
-}
-
-/* Estilos de la caja 1 */
 .caja1 {
     padding: 1rem;
     background: white;
     box-shadow: var(--box-shadow);
     border-radius: 20px;
-    font-size: 12px; /* Cambiar el valor según sea necesario */
-}
-.caja1:hover {
-   box-shadow: none;
+    font-size: 13.5px;
 }
 
-.datos-usu, .datos-prov {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 20px;
-    
+.caja1:hover {
+    box-shadow: none;
 }
 
 .datos-usu,
@@ -84,16 +59,38 @@ h2 {
     margin: 5px;
     flex: 1;
     text-align: left;
-    /* Alinear todo a la izquierda */
     padding-right: 10px;
-    /* Agregar espacio entre las etiquetas y los campos de entrada */
 }
-
-.box-container label {
-    display: block;
-    margin-bottom: 5px;
+.datos-usu .box-container button.buttonProd {
+    margin-top: 1rem;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 10px;
 }
-
+.datos-prov .box-container button.buttonProd {
+    margin-top: 1.3rem;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 13px;
+}
+input[type="date"],
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+}
 input[type="date"],
 input[type="text"],
 select {
@@ -126,9 +123,6 @@ select {
     height: 41px;
 }
 
-
-/* Estilos de la tabla */
-
 .tabla1 {
     margin-top: 1rem;
     width: 100%;
@@ -140,37 +134,18 @@ select {
     margin-bottom: 0.8rem;
     padding: 10px;
 }
+
 .tabla1:hover {
-   box-shadow: none;
+    box-shadow: none;
 }
-.tabla1 tr {
-    line-height: 0.8;
-}
-.tabla1 td, .tabla1 th {
+
+.tabla1 td,
+.tabla1 th {
     border: none;
     padding: 1rem;
     font-size: 0.8rem;
-    
-}
-.tabla1 tbody td{
-    height: 2.8rem;
-    border-bottom: 1px solid var(--color-light);
-}
-.tabla1 tbody tr:last-child td {
-    border: none;
-}
-.tabla1 tr:hover {
-    background-color: #f2f2f2;
 }
 
-.eliminar {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 10px;
-}
 .generar-pedido {
     background-color: #4CAF50;
     border: none;
@@ -179,48 +154,60 @@ select {
     padding: 0.6rem;
     width: 20%;
     border-radius: 10px;
-    margin-left: 78%;
+    margin-left: auto;
     margin-top: 60px;
 }
 
-/* Estilos de la caja 2 */
 .caja2 {
     margin-top: 1rem;
     padding: 1.5rem;
     background: #fff;
     box-shadow: var(--box-shadow);
     border-radius: 20px;
-}
-
-.productos h2 {
-    margin-top: 0;
+    font-size: 13.5px;
 }
 
 .datosproductos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 1rem;
-    font-size: 0.8rem;
+    font-size: 12px;
 }
-.datosproductos input, select{
+
+.datosproductos label {
+    flex-basis: 20%;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.datosproductos input[type="text"],
+.datosproductos select {
+    flex-basis: 30%;
     margin-bottom: 0.5rem;
 }
 
+.foto-prod {
+    flex-basis: 100%;
+    max-height: 145px;
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
 .agregar {
+    flex-basis: 100%;
     margin-top: 1rem;
     background-color: #4CAF50;
     border: none;
     color: white;
     cursor: pointer;
     padding: 0.5rem;
-    width: 100%;
     border-radius: 10px;
 }
 
-.foto-prod {
-    max-height: 145px;
-    margin-top: 1rem;
-    max-width: 100%;
-}
+.datos-usu .buttonProd {
+    
+    
 
+}
