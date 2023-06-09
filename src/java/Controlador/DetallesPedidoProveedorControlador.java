@@ -7,8 +7,10 @@ package Controlador;
 
 import ModeloDAO.DetallesPedidoProveedorDAO;
 import ModeloDAO.ProveedorDAO;
+import ModeloDAO.productosDAO;
 import ModeloVO.DetallesPedidoProveedorVO;
 import ModeloVO.ProveedorVO;
+import ModeloVO.productosVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ public class DetallesPedidoProveedorControlador extends HttpServlet {
     DetallesPedidoProveedorVO detProvVO = new DetallesPedidoProveedorVO();
     ProveedorVO provVO = new ProveedorVO();
     ProveedorDAO provDAO = new ProveedorDAO(provVO);
+    productosVO prodVO = new productosVO();
+    productosDAO prodDAO = new productosDAO(prodVO);
     String idProducto;
     String nombreProducto;
     int cantidad, item;
@@ -75,6 +79,12 @@ public class DetallesPedidoProveedorControlador extends HttpServlet {
                     provVO.setId_prov(nit);
                     provVO = provDAO.consultarPorId(nit);
                     request.setAttribute("provVO", provVO);
+                    break;
+                case 4:
+                    String referencia = request.getParameter("id_prod");
+                    prodVO = prodDAO.listarid(referencia);
+                    request.setAttribute("provVO", provVO);
+                    request.setAttribute("prodVO", prodVO);
                     break;
 
             }

@@ -5,13 +5,15 @@
         <group>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/prueba.jsp</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/CSS/prueba.css</file>
-            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/ModeloDAO/ProveedorDAO.java</file>
+            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/menuVendedor.jsp</file>
+            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/ModeloVO/productosVO.java</file>
+            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/Controlador/ProductosControlador.java</file>
+            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/ModeloDAO/productosDAO.java</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/JS/pedidoproveedor.js</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/CSS/principal.css</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/Controlador/ControladorCotizacion1.java</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/CrearCotizacion1.jsp</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/Controlador/DetallesPedidoProveedorControlador.java</file>
-            <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/src/java/ModeloVO/ProveedorVO.java</file>
             <file>file:/C:/Users/Alexander/Documents/NetBeansProjects/ubikuoFinal/web/CSS/pedido.css</file>
         </group>
     </open-files>

@@ -98,36 +98,23 @@
                                 <div class="datos-usu">
                                     <div class="box-container">
                                         <label>Referencia</label>
-                                        <select name="id_prod" id="selectProducto" onchange="inputsProductos()" class="select2"
-                                                id="miSelect">
-                                            <option value="">Seleccione...</option>
-                                            <% productosDAO prodDAO = new productosDAO();
-                                                List<productosVO> listaProductos = prodDAO.listar();
-                                                for (productosVO prodVO : listaProductos) {%>
-                                            <option class="producto-option" value="<%= prodVO.getId_prod()%>"
-                                                    data-descripcion="<%= prodVO.getProd_descripcion()%>"
-                                                    data-precio="<%= prodVO.getProdprecio()%>"
-                                                    data-stock="<%= prodVO.getProdstock_disp()%>">
-                                                <%= prodVO.getProdnombre()%> - REF: <%= prodVO.getId_prod()%>
-                                            </option>
-                                            <% }%>
-                                        </select>
+                                        <input type="text" placeholder="Identificación" name="id_prod" value="${prodVO.id_prod}">
+                                    </div>
+                                    <div class="box-container">
+                                        <button class="buttonProd">Buscar</button>
+                                        <input type="hidden" name="opcion" value="4">
                                     </div>
                                     <div class="box-container">
                                         <label>Precio</label>
-                                        <input type="text" placeholder="Precio" id="prodprecio" name="prodprecio">
-                                    </div>
-                                    <div class="box-container">
-                                        <label>Descripcion</label>
-                                        <input type="text" placeholder="Descripcion" id="prod_descripcion" name="prod_descripcion">
+                                        <input type="number" placeholder="Precio" name="prodprecio" value="${prodVO.prodprecio}">
                                     </div>
                                     <div class="box-container">
                                         <label>Stock</label>
-                                        <input type="text" placeholder="Stock" id="prodstock_disp" name="prodstock_disp">
+                                        <input type="number" placeholder="Stock" name="prodstock_disp" value="${prodVO.prodstock_disp}">
                                     </div>
                                     <div class="box-container">
                                         <label>Cantidad</label>
-                                        <input type="text" placeholder="Cantidad" name="dpro_cantidad">
+                                        <input type="number" placeholder="Cantidad" name="dpro_cantidad" >
                                     </div>
                                     <div class="box-container">
                                         <button class="buttonProd">Agregar Producto</button>
@@ -136,6 +123,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <br>
                         <h4>Lista de Productos</h4>
                         <table class="tabla1">

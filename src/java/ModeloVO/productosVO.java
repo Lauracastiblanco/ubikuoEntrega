@@ -123,6 +123,4 @@ public class productosVO {
     public void setProd_id_prov(String prod_id_prov) {
         this.prod_id_prov = prod_id_prov;
     }
-    
-
 }

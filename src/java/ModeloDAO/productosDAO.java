@@ -175,32 +175,35 @@ public class productosDAO extends ConexionBd implements Crud {
     }
 
     public productosVO listarid(String id) {
-        productosVO pVO = new productosVO();
-        sql = "select * from tblproductos where id_prod=" + id;
-        try {
-            conexion = this.obtenerConexion();
-            puente = conexion.prepareStatement(sql);
-            mensajero = puente.executeQuery();
-            while (mensajero.next()) {
-
-                pVO.setId_prod(mensajero.getString(1));
-                pVO.setProdnombre(mensajero.getString(2));
-                pVO.setProdprecio(mensajero.getString(3));
-                pVO.setProd_id_categoria(mensajero.getString(4));
-                pVO.setProdestado(mensajero.getString(5));
-                pVO.setProdstock_disp(mensajero.getString(6));
-                pVO.setProd_descripcion(mensajero.getString(7));
-                pVO.setProd_id_prov(mensajero.getString(8));
-
+    productosVO pVO = new productosVO();
+    sql = "SELECT * FROM tblproductos WHERE id_prod = ?";
+    try {
+        conexion = this.obtenerConexion();
+        puente = conexion.prepareStatement(sql);
+        puente.setString(1, id); // Establecer el valor de id como parámetro
+        mensajero = puente.executeQuery();
+        while (mensajero.next()) {
+            pVO.setId_prod(mensajero.getString(1));
+            pVO.setProdnombre(mensajero.getString(2));
+            pVO.setProdprecio(mensajero.getString(3));
+            pVO.setProd_id_categoria(mensajero.getString(4));
+            pVO.setProdestado(mensajero.getString(5));
+            pVO.setProdstock_disp(mensajero.getString(6));
+            pVO.setProd_descripcion(mensajero.getString(7));
+            pVO.setProd_id_prov(mensajero.getString(8));
+        }
+    } catch (Exception e) {
+            Logger.getLogger(productosDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally {
+            try {
+                this.cerrarConexion();
+            } catch (Exception e) {
+                Logger.getLogger(productosDAO.class.getName()).log(Level.SEVERE, null, e);
             }
-        } catch (Exception e) {
         }
         return pVO;
 
     }
-
-    
-    
 
     @Override
     public boolean eliminarRegisro() {

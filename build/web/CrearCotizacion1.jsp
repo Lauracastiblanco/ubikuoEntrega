@@ -119,7 +119,6 @@
                                                     <button type="submit" name="accion" value="buscarcliente" class="btn btn-success">Buscar</button>
                                                 </div>
                                             </div>
-
                                             <div style="flex: 0 0 33.33%; max-width: 33.33%;">
                                                 <label>Nombre</label>
                                                 <input type="text" placeholder="Nombre" value="${c.getClinombre()}" class="form-field" readonly>
